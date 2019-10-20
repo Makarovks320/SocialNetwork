@@ -1,0 +1,30 @@
+
+.post {
+  margin: 20px 0;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(205, 255, 212);
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+.wrapper {
+  display: flex;
+}
+
+.wrapper .avatar {
+  border-radius: 50%;
+}
+.wrapper .post_info {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.post_info time {
+  text-align: right;
+color: rgb(0, 130, 102, 0.7);
+}
+.content {
+  margin: 10px;
+  margin-top: 0;
+}

@@ -1,0 +1,15 @@
+
+.header {
+  grid-area: h;
+  /* background-color: lemonchiffon; */
+  background-color: rgb(205, 255, 212);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid black;
+  border-top: none;
+}
+
+.logo {
+  height: 60px;
+  margin-left: 20px;
+}

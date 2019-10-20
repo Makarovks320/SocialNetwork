@@ -1,0 +1,36 @@
+
+.nav {
+  grid-area: n;
+  background-color: rgb(205, 255, 212);
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.list {
+  padding-left: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+.item {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.item:hover {
+  background-color: rgb(192, 233, 198);
+  color: #000;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: rgb(0, 130, 102);
+}
+.activeLink {
+  color: red;
+}
