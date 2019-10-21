@@ -7,15 +7,16 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="main">
-          <Route path='/profile' component={Profile}/>
-          <Route path='/dialogs'component={Dialogs}/>
+          <Route path='/profile' render={() => <Profile state = {props.state.profilePage} 
+            addPost={props.addPost}/>}/>
+          <Route path='/dialogs'render={() => <Dialogs state = {props.state.messagesPage}/>}/>
         </div>
       </div>
     </BrowserRouter>

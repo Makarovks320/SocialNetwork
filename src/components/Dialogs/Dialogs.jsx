@@ -4,11 +4,11 @@ import s from './Dialogs.module.css';
 import Dialog_items from './Dialog-items/Dialog_items';
 import Messages from './Messages/Messages';
 
-const Dialogs = () => {
+const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
-      <Dialog_items />
-      <Messages />
+      <Dialog_items dialogs={props.state.dialogs}/>
+      <Messages messages ={props.state.messages}/>
     </div>
     
   )
