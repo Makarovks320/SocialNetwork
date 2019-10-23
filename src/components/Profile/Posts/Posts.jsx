@@ -1,6 +1,5 @@
 import React from 'react';
 import Post from './Post/Post';
-// Пока что данные на с сервера, а здесь:
 
 
   

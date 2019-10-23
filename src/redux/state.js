@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "./render";
+
 let state = {
   profilePage: {
     posts: [
@@ -22,7 +24,8 @@ let state = {
         text: 'Post content: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi sed facilis eos, dolorum enim vel distinctio doloremque molest',
         likesCount: '64'
       }
-    ]
+    ],
+    newPostText: ''
   },
   messagesPage: {
     dialogs: [
@@ -72,15 +75,23 @@ let state = {
   }
 
 }
-export let addPost = (text) => {
+export let addPost = () => {
   let newPost = {
     id: +state.profilePage.posts[0].id+1,
     datetime: '2019-11-18T09:54',
     author: 'Anastacia Zavorotnyuk',
-    text: text,
+    text: state.profilePage.newPostText,
     likesCount: 0
   }
+  if (state.profilePage.newPostText !== '') {
   state.profilePage.posts.unshift(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree({state});
+  }
+}
+export let updatePost = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree({state});
 }
 
 export default state;

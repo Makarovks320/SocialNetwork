@@ -5,8 +5,10 @@ const Post = (props) => {
   return (
     <div className={s.post}>
       <div className={s.wrapper}>
-        <div className={s.thumbnail}><img className={s.avatar} alt="avatar" 
-          src="https://ilarge.lisimg.com/image/8012568/984full.jpg" width="100%" /></div>
+        <div className={s.thumbnail}>
+          <img className={s.avatar} alt="avatar" 
+          src="https://ilarge.lisimg.com/image/8012568/984full.jpg" width="100%" />
+        </div>
         <div className={s.post_info}>
           <span>{props.author}</span>
           <time>{props.datetime}</time>
