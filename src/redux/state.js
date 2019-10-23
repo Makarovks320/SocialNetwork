@@ -1,4 +1,3 @@
-import { rerenderEntireTree } from "./render";
 
 let state = {
   profilePage: {
@@ -69,13 +68,20 @@ let state = {
         message: "The less a woman we love, the easier she likes us...",
         author_id: 4},
       { id: 5,
-        message: "Let's get some hype?!",
+        message: "Let's drink?!",
         author_id: 5},
     ]
   }
 
 }
-export let addPost = () => {
+
+let rerenderEntireTree = () => {
+  console.log('Вызывается перерисовка в Стейте');
+  }
+export let subscriber =(observer) => {
+  rerenderEntireTree = observer;
+}
+export const addPost = () => {
   let newPost = {
     id: +state.profilePage.posts[0].id+1,
     datetime: '2019-11-18T09:54',
@@ -89,7 +95,7 @@ export let addPost = () => {
   rerenderEntireTree({state});
   }
 }
-export let updatePost = (newText) => {
+export const updatePost = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree({state});
 }
