@@ -9,6 +9,7 @@ let onButtonClick = () => {
 
 let onPostChange =() => {
   let text = textareaElement.current.value;
+  console.log('go');
   props.updatePost(text);
 }
 
