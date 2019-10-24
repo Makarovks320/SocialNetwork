@@ -83,7 +83,7 @@ let store = {
   getState () {
     return this._state;
   },
-  addPost() {
+  _addPost() {
     let newPost = {
       id: +this._state.profilePage.posts[0].id+1,
       datetime: '2019-11-18T09:54',
@@ -97,9 +97,17 @@ let store = {
     this._subscriber(this._state);
     }
   },
-  updatePost (newText) {
+  _updatePost (newText) {
     this._state.profilePage.newPostText = newText;
     this._subscriber(this._state);
+  },
+  dispatch(action){ // type
+    if (action.type === 'ADD_POST') {
+      this._addPost();
+    } else 
+      if (action.type === 'UPDATE_POST'){
+        this._updatePost(action.newText);
+    }
   }
 }
 

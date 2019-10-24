@@ -15,7 +15,7 @@ function App(props) {
         <Navbar />
         <div className="main">
           <Route path='/profile' render={() => <Profile state = {props.state.profilePage} 
-            addPost={props.addPost} updatePost = {props.updatePost}/>}/>
+            dispatch = {props.dispatch}/>}/>
           <Route path='/dialogs'render={() => <Dialogs state = {props.state.messagesPage}/>}/>
         </div>
       </div>

@@ -4,13 +4,15 @@ import s from './New_post.module.css';
 const New_post = (props) => {
 let textareaElement = React.createRef();
 let onButtonClick = () => {
-  props.addPost()
+  // props.addPost()
+  props.dispatch( { type: 'ADD_POST'});
 }
 
 let onPostChange =() => {
   let text = textareaElement.current.value;
   console.log('go');
-  props.updatePost(text);
+  // props.updatePost(text);
+  props.dispatch( { type: 'UPDATE_POST', newText: text});
 }
 
   return (
