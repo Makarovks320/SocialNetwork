@@ -1,18 +1,17 @@
 import React from 'react';
 import s from './New_post.module.css';
+import { updatePostActionCreator, addPostActionCreator } from '../../../redux/state';
+
 
 const New_post = (props) => {
 let textareaElement = React.createRef();
 let onButtonClick = () => {
-  // props.addPost()
-  props.dispatch( { type: 'ADD_POST'});
+  props.dispatch(addPostActionCreator());
 }
 
 let onPostChange =() => {
   let text = textareaElement.current.value;
-  console.log('go');
-  // props.updatePost(text);
-  props.dispatch( { type: 'UPDATE_POST', newText: text});
+  props.dispatch(updatePostActionCreator(text));
 }
 
   return (

@@ -1,3 +1,5 @@
+const ADD_POST = 'ADD_POST'
+const UPDATE_POST = 'UPDATE_POST'
 let store = {
   _subscriber(){
     console.log('no subscribers')
@@ -110,7 +112,13 @@ let store = {
     }
   }
 }
+export const addPostActionCreator = () => {
+  return { type: ADD_POST}
+}
 
+export const updatePostActionCreator = (text) => {
+  return { type: UPDATE_POST, newText: text}
+}
 
 
 
