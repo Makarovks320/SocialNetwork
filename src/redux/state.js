@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD_POST'
 const UPDATE_POST = 'UPDATE_POST'
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const UPDATE_MESSAGE_BODY = 'UPDATE_MESSAGE_BODY'
 let store = {
   _subscriber(){
     console.log('no subscribers')
@@ -75,7 +77,8 @@ let store = {
         { id: 5,
           message: "Let's drink?!",
           author_id: 5},
-      ]
+      ],
+      newMessageBody: '',
     }
   },
 
@@ -102,24 +105,51 @@ let store = {
   _updatePost (newText) {
     this._state.profilePage.newPostText = newText;
     this._subscriber(this._state);
+    console.log(this._state.profilePage.newPostText);
   },
-  dispatch(action){ // type
-    if (action.type === 'ADD_POST') {
-      this._addPost();
-    } else 
-      if (action.type === 'UPDATE_POST'){
-        this._updatePost(action.newText);
+  _addMessage() {
+    let shortLink = this._state.messagesPage;
+    let newMessage = {
+      id: +shortLink.messages[shortLink.messages.length-1].id+1,
+      author_id: '0',
+      message: shortLink.newMessageBody,
     }
+    if (shortLink.newMessageBody !== '') {
+    shortLink.messages.push(newMessage);
+    shortLink.newMessageBody = '';
+    this._subscriber(this._state);
+    }
+  },
+  _updateMessageBody (newText) {
+    this._state.messagesPage.newMessageBody = newText;
+    this._subscriber(this._state);
+  },
+  dispatch(action){
+    switch (action.type) {
+    case 'ADD_POST':
+      this._addPost();
+      break;
+    case 'UPDATE_POST':
+      this._updatePost(action.newText);
+      break;
+    case 'ADD_MESSAGE':
+      this._addMessage();
+      break;
+    case 'UPDATE_MESSAGE_BODY':
+      this._updateMessageBody(action.newMessageBody);
+      break;
+    default:
+      break;
   }
 }
-export const addPostActionCreator = () => {
-  return { type: ADD_POST}
 }
+export const addPostActionCreator = () => ({ type: ADD_POST});
 
-export const updatePostActionCreator = (text) => {
-  return { type: UPDATE_POST, newText: text}
-}
+export const updatePostActionCreator = (text) => ({ type: UPDATE_POST, newText: text});
 
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE});
+
+export const updateMessageBodyActionCreator = (text) => ({ type: UPDATE_MESSAGE_BODY, newMessageBody: text});
 
 
 export default store;

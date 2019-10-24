@@ -1,5 +1,5 @@
 
-.new_post_container {
+.new_message_container {
   margin: 20px 0;
   padding: 5px;
   display: flex;
@@ -14,12 +14,12 @@
 .wrapper {
   display: flex;
 }
-.new_post_container textarea {
+.new_message_container textarea {
   padding: 5px;
   width: 100%;
   margin: 10px;
 }
-.new_post_container button {
+.new_message_container button {
   align-self: flex-end;
 
   height: 30px;
@@ -33,6 +33,6 @@
   border-radius: 5px;
   
 }
-.new_post_container button:hover {
+.new_message_container button:hover {
 background-color: rgb(192, 233, 198);
 }
