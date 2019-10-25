@@ -5,12 +5,10 @@ import Dialog_items from './Dialog-items/Dialog_items';
 import Messages from './Messages/Messages';
 
 const Dialogs = (props) => {
-  console.log('inlkjnk')
-  debugger;
   return (
     <div className={s.dialogs}>
-      <Dialog_items dialogs={props.messagesPage.dialogs}/>
-      <Messages messagesPage = {props.messagesPage} dispatch = {props.dispatch}/>
+      <Dialog_items dialogs={props.store.getState().messagesPage.dialogs}/>
+      <Messages store = {props.store}/>
     </div>
     
   )

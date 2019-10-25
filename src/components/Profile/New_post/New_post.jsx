@@ -4,15 +4,14 @@ import { updatePostActionCreator, addPostActionCreator } from '../../../redux/pr
 
 
 const New_post = (props) => {
-let action = addPostActionCreator();
-let onButtonClick = () => {
-  props.dispatch(action);
+  
+let onAddPostClick = () => {
+  props.addPost();
 }
 
 let onPostChange =(e) => {
   let text = e.target.value;
-  let action = updatePostActionCreator(text);
-  props.dispatch(action);
+  props.updatePostText(text);
 }
 
   return (
@@ -22,7 +21,7 @@ let onPostChange =(e) => {
         src="https://ilarge.lisimg.com/image/8012568/984full.jpg" width="50px"/>
         <textarea onChange={onPostChange} value={props.newPostText} placeholder="Write your post here..."/>
       </div>
-      <button onClick = {onButtonClick}>Post</button>
+      <button onClick = {onAddPostClick}>Post</button>
     </div>
   )
 }

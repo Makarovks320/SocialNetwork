@@ -8,16 +8,15 @@ import Dialogs from './components/Dialogs/Dialogs';
 
 
 function App(props) {
+  debugger
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="main">
-          <Route path='/profile' render={() => <Profile state = {props.state.profilePage} 
-            dispatch = {props.dispatch}/>}/>
-          <Route path='/dialogs'render={() => <Dialogs messagesPage = {props.state.messagesPage}
-          dispatch = {props.dispatch}/>}/>
+          <Route path='/profile' render={() => <Profile store = {props.store}/>}/>
+          <Route path='/dialogs'render={() => <Dialogs store = {props.store}/>}/>
         </div>
       </div>
     </BrowserRouter>

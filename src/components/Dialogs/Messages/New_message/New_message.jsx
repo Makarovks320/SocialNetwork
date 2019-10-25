@@ -1,20 +1,16 @@
 import React from 'react';
 import s from './New_message.module.css';
-import { updateMessageBodyActionCreator, addMessageActionCreator } from '../../../../redux/messages_reducer';
-
 
 const New_message = (props) => {
 
-let onButtonClick = () => {
-  let action = addMessageActionCreator();
-  props.dispatch(action);
+let onSendMessageClick = () => {
+  props.sendMessage();
+
 }
 
-let onNewMessageChange =(e) => {
+let onMessageChange =(e) => {
   let text = e.target.value;
-  let action = updateMessageBodyActionCreator(text);
-  debugger
-  props.dispatch(action);
+  props.updateMessageBody(text);
 }
 
   return (
@@ -22,10 +18,10 @@ let onNewMessageChange =(e) => {
       <div className={s.wrapper}>
         <img className={s.avatar} alt="avatar" 
         src="https://ilarge.lisimg.com/image/8012568/984full.jpg" width="50px"/>
-        <textarea onChange={onNewMessageChange} 
-        value={props.messagesPage.newMessageBody}/>
+        <textarea onChange={onMessageChange} 
+        value={props.newMessageBody}/>
       </div>
-      <button onClick = {onButtonClick}>Send</button>
+      <button onClick = {onSendMessageClick}>Send</button>
     </div>
   )
 }

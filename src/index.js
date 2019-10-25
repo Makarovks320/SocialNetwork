@@ -6,13 +6,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-let rerenderEntireTree = (state) => {
-  debugger
-  ReactDOM.render( < App state = {state} dispatch = {store.dispatch.bind(store)}/>,
+let rerenderEntireTree = () => {
+  ReactDOM.render( < App store = {store} dispatch = {store.dispatch.bind(store)}/>,
     document.getElementById('root'));
 }
-
-rerenderEntireTree(store.getState());
+debugger
+rerenderEntireTree();
 store.subscribe(()=> {
   let state = store.getState();
   rerenderEntireTree(state)
