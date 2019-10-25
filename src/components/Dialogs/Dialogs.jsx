@@ -5,7 +5,8 @@ import Dialog_items from './Dialog-items/Dialog_items';
 import Messages from './Messages/Messages';
 
 const Dialogs = (props) => {
-  
+  console.log('inlkjnk')
+  debugger;
   return (
     <div className={s.dialogs}>
       <Dialog_items dialogs={props.messagesPage.dialogs}/>

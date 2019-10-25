@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD_POST'
-const UPDATE_POST = 'UPDATE_POST'
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_MESSAGE_BODY = 'UPDATE_MESSAGE_BODY'
+import profileReducer from "./profile_reducer";
+import messagesReducer from "./messages_reducer";
+
 let store = {
   _subscriber(){
     console.log('no subscribers')
@@ -88,68 +87,15 @@ let store = {
   getState () {
     return this._state;
   },
-  _addPost() {
-    let newPost = {
-      id: +this._state.profilePage.posts[0].id+1,
-      datetime: '2019-11-18T09:54',
-      author: 'Anastacia Zavorotnyuk',
-      text: this._state.profilePage.newPostText,
-      likesCount: 0
-    }
-    if (this._state.profilePage.newPostText !== '') {
-    this._state.profilePage.posts.unshift(newPost);
-    this._state.profilePage.newPostText = '';
-    this._subscriber(this._state);
-    }
-  },
-  _updatePost (newText) {
-    this._state.profilePage.newPostText = newText;
-    this._subscriber(this._state);
-    console.log(this._state.profilePage.newPostText);
-  },
-  _addMessage() {
-    let shortLink = this._state.messagesPage;
-    let newMessage = {
-      id: +shortLink.messages[shortLink.messages.length-1].id+1,
-      author_id: '0',
-      message: shortLink.newMessageBody,
-    }
-    if (shortLink.newMessageBody !== '') {
-    shortLink.messages.push(newMessage);
-    shortLink.newMessageBody = '';
-    this._subscriber(this._state);
-    }
-  },
-  _updateMessageBody (newText) {
-    this._state.messagesPage.newMessageBody = newText;
-    this._subscriber(this._state);
-  },
+
   dispatch(action){
-    switch (action.type) {
-    case 'ADD_POST':
-      this._addPost();
-      break;
-    case 'UPDATE_POST':
-      this._updatePost(action.newText);
-      break;
-    case 'ADD_MESSAGE':
-      this._addMessage();
-      break;
-    case 'UPDATE_MESSAGE_BODY':
-      this._updateMessageBody(action.newMessageBody);
-      break;
-    default:
-      break;
-  }
+
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+    this._subscriber(this._state);
 }
 }
-export const addPostActionCreator = () => ({ type: ADD_POST});
 
-export const updatePostActionCreator = (text) => ({ type: UPDATE_POST, newText: text});
-
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE});
-
-export const updateMessageBodyActionCreator = (text) => ({ type: UPDATE_MESSAGE_BODY, newMessageBody: text});
 
 
 export default store;

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './New_message.module.css';
-import { updateMessageBodyActionCreator, addMessageActionCreator } from '../../../../redux/state';
+import { updateMessageBodyActionCreator, addMessageActionCreator } from '../../../../redux/messages_reducer';
 
 
 const New_message = (props) => {
@@ -13,6 +13,7 @@ let onButtonClick = () => {
 let onNewMessageChange =(e) => {
   let text = e.target.value;
   let action = updateMessageBodyActionCreator(text);
+  debugger
   props.dispatch(action);
 }
 
