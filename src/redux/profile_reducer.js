@@ -1,7 +1,34 @@
 const ADD_POST = 'ADD_POST'
 const UPDATE_POST = 'UPDATE_POST'
 
-const profileReducer = (state, action) => {
+let initialState = {
+  posts: [
+    {
+      id: '3',
+      datetime: '2019-11-18T09:54',
+      author: 'Anastacia Zavorotnyuk',
+      text: 'Скиньте деньги на лечение, пожалуйста!',
+      likesCount: '289'
+    },
+    {
+      id: '2',
+      datetime: '2017-11-18T09:54',
+      author: 'Anastacia Zavorotnyuk',
+      text: 'adsasdas',
+      likesCount: '150'
+    },
+    {
+      id: '1',
+      datetime: '2016-11-18T09:54',
+      author: 'Anastacia Zavorotnyuk',
+      text: 'Post content: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi sed facilis eos, dolorum enim vel distinctio doloremque molest',
+      likesCount: '64'
+    }
+  ],
+  newPostText: ''
+}
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_POST': 
       let newPost = {
