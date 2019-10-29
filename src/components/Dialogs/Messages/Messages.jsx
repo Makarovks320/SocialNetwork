@@ -2,7 +2,6 @@
 import React from 'react';
 import s from './Messages.module.css';
 import Message from './Message/Message';
-import New_message from './New_message/New_message';
 import New_message_container from './New_message/New_message_container';
 
 

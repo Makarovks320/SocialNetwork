@@ -53,7 +53,6 @@ const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case 'ADD_MESSAGE':
-      debugger
         let newMessage = {
           id: +state.messages[state.messages.length-1].id+1,
           author_id: '0',
