@@ -4,9 +4,7 @@ import New_message from './New_message';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-  return {
-    newMessageBody: state.newMessageBody
-  }
+  return {newMessageBody: state.messagesPage.newMessageBody}
 }
 const mapDispatchToProps = (dispatch) => {
   return {
