@@ -4,21 +4,21 @@ const UPDATE_POST = 'UPDATE_POST'
 let initialState = {
   posts: [
     {
-      id: '3',
+      id: 3,
       datetime: '2019-11-18T09:54',
       author: 'Anastacia Zavorotnyuk',
       text: 'Скиньте деньги на лечение, пожалуйста!',
       likesCount: '289'
     },
     {
-      id: '2',
+      id: 2,
       datetime: '2017-11-18T09:54',
       author: 'Anastacia Zavorotnyuk',
       text: 'adsasdas',
       likesCount: '150'
     },
     {
-      id: '1',
+      id: 1,
       datetime: '2016-11-18T09:54',
       author: 'Anastacia Zavorotnyuk',
       text: 'Post content: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi sed facilis eos, dolorum enim vel distinctio doloremque molest',
@@ -48,10 +48,10 @@ const profileReducer = (state = initialState, action) => {
     }
 
     case 'UPDATE_POST':
-      let stateCopy = {...state}
-      debugger
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
+      return {
+        ...state,
+        newPostText: action.newText
+      }
 
   default:
   return state;

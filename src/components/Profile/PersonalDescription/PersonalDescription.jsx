@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Personal_Description.module.css';
+import s from './PersonalDescription.module.css';
 
-const Personal_Description = () => {
+const PersonalDescription = () => {
   return (
     <div className={s.personal_data}>
         <img className={s.avatar} alt="avatar" 
@@ -33,4 +33,4 @@ const Personal_Description = () => {
   )
 }
 
-export default Personal_Description;
+export default PersonalDescription;

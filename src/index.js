@@ -1,4 +1,5 @@
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/redux_store';

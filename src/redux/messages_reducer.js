@@ -2,56 +2,58 @@ const ADD_MESSAGE = 'ADD_MESSAGE'
 const UPDATE_MESSAGE_BODY = 'UPDATE_MESSAGE_BODY'
 
 let initialState = {
-  dialogs: [{
+  dialogs: [
+    {
       name: "Volodya",
       surname: "Putler",
-      author_id: "1",
+      user_id: "1",
     },
     {
       name: "Louis",
       surname: "Suarez",
-      author_id: "2",
+      user_id: "2",
     },
     {
       name: "Evgen",
       surname: "Bajenov",
-      author_id: "3",
+      user_id: "3",
     },
     {
       name: "Alexander",
       surname: "Pushkin",
-      author_id: "4",
+      user_id: "4",
     },
     {
       name: "Bari",
       surname: "Alibasov",
-      author_id: "5",
+      user_id: "5",
     }
   ],
-  messages: [{
+  messages: [
+    {
       id: 1,
       message: "Плоти нологе!",
-      author_id: 1
+      user_id: 1
     },
     {
       id: 2,
       message: "Let's grab a bite!",
-      author_id: 2
+      user_id: 2
     },
     {
       id: 3,
       message: "For you and for Sashka!",
-      author_id: 3
+      user_id: 3
     },
     {
       id: 4,
       message: "The less a woman we love, the easier she likes us...",
-      author_id: 4
+      user_id: 4
     },
     {
       id: 5,
       message: "Let's drink?!",
-      author_id: 5
+      user_id: 5
     },
   ],
   newMessageBody: '',
@@ -66,20 +68,21 @@ const messagesReducer = (state = initialState, action) => {
         author_id: '0',
         message: state.newMessageBody,
       }
-      let stateCopy = {...state}
-      stateCopy.messages = [...state.messages]
-      if (state.newMessageBody !== '') {
+      let stateCopy = {
+        ...state,
+         messages: [...state.messages]
+        }
+      if (stateCopy.newMessageBody !== '') {
         stateCopy.messages.push(newMessage);
         stateCopy.newMessageBody = '';
       }
       return stateCopy;
     }
     case 'UPDATE_MESSAGE_BODY':
-      let stateCopy = {...state}
-      debugger
-      stateCopy.newMessageBody = action.newMessageBody;
-      debugger
-      return stateCopy;
+      return {
+        ...state,
+        newMessageBody: action.newMessageBody
+      }
     default:
       return state;
   }

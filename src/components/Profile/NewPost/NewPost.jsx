@@ -1,9 +1,8 @@
 import React from 'react';
-import s from './New_post.module.css';
+import s from './NewPost.module.css';
 
 
-const New_post = (props) => {
-  
+const NewPost = (props) => {
 let onAddPostClick = () => {
   props.addPost();
 }
@@ -25,4 +24,4 @@ let onPostChange =(e) => {
   )
 }
 
-export default New_post;
+export default NewPost;

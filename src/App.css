@@ -9,7 +9,7 @@
   grid-template-columns: 2fr 2fr 10fr 2fr;
   grid-gap: 10px;
 
-  background-color: rgb(221, 233, 230);
+
 }
 .main {
   grid-area: c;

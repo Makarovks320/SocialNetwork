@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-pascal-case */
 import { updateMessageBodyActionCreator, addMessageActionCreator } from '../../../../redux/messages_reducer';
-import New_message from './New_message';
+import NewMessage from './NewMessage';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -17,6 +16,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const New_message_container = connect(mapStateToProps, mapDispatchToProps)(New_message)
+const NewMessageContainer = connect(mapStateToProps, mapDispatchToProps)(NewMessage)
 
-export default New_message_container;
+export default NewMessageContainer;

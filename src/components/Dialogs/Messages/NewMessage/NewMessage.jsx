@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './New_message.module.css';
+import s from './NewMessage.module.css';
 
-const New_message = (props) => {
+const NewMessage = (props) => {
 
 let onSendMessageClick = () => {
   props.sendMessage();
@@ -26,4 +26,4 @@ let onMessageChange =(e) => {
   )
 }
 
-export default New_message;
+export default NewMessage;

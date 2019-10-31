@@ -1,11 +1,11 @@
-/* eslint-disable react/jsx-pascal-case */
-import { updatePostActionCreator, addPostActionCreator } from '../../../redux/profile_reducer';
-import New_post from './New_post';
 import { connect } from 'react-redux';
+import NewPost from './NewPost';
+import { updatePostActionCreator, addPostActionCreator } from '../../../redux/profile_reducer';
 
 
 
 const mapStateToProps = (state) => {
+  debugger
   return { newPostText: state.profilePage.newPostText }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -19,6 +19,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const New_post_container = connect(mapStateToProps, mapDispatchToProps)(New_post)
+const NewPostContainer = connect(mapStateToProps, mapDispatchToProps)(NewPost)
 
-export default New_post_container;
+export default NewPostContainer;
