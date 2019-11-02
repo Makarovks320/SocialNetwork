@@ -5,13 +5,12 @@ let initialState = {
   users: []
 }
 const usersReducer = (state = initialState, action) => {
-  debugger
   switch (action.type) {
     case 'FOLLOW_STATUS_CHANGE':
       return {
         ...state,
         users: state.users.map( u => {
-          if (u.user_id === action.userId) {
+          if (u.id === action.userId) {
             u.followed = !u.followed
           }
           return u

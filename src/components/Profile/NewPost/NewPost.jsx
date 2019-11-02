@@ -15,8 +15,10 @@ let onPostChange =(e) => {
   return (
     <div className={s.new_post_container}>
       <div className={s.wrapper}>
-        <img className={s.avatar} alt="avatar" 
-        src="https://ilarge.lisimg.com/image/8012568/984full.jpg" width="50px"/>
+        <div className={s.thumbnail}>
+          <img className={s.avatar} alt="avatar" 
+          src="https://ilarge.lisimg.com/image/8012568/984full.jpg" width="100%"/>
+        </div>
         <textarea onChange={onPostChange} value={props.newPostText} placeholder="Write your post here..."/>
       </div>
       <button onClick = {onAddPostClick}>Post</button>
