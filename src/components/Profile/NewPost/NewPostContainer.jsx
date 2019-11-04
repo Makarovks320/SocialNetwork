@@ -5,7 +5,6 @@ import { updatePostActionCreator, addPostActionCreator } from '../../../redux/pr
 
 
 const mapStateToProps = (state) => {
-  debugger
   return { newPostText: state.profilePage.newPostText }
 }
 const mapDispatchToProps = (dispatch) => {
