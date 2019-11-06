@@ -7,9 +7,9 @@ import NewPostContainer from './NewPost/NewPostContainer';
 const Profile = (props) => {
   return (
     <main className={s.content}>  
-      <PersonalDescription/>
-      <NewPostContainer store = {props.store}/>
-      <Posts posts={props.store.getState().profilePage.posts}/>
+      <PersonalDescription profile={props.profile}/>
+      <NewPostContainer />
+      <Posts posts={props.posts}/>
       </main>
   )
 }
