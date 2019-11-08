@@ -4,10 +4,12 @@ import * as axios from 'axios';
 import Button from "react-bootstrap/Button";
 import s from './Users.module.css'
 import userPic from '../../img/genericUser.png'
+import {Info} from './styles'
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
+  
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
@@ -16,7 +18,7 @@ const Users = (props) => {
       <div>
         {pages.map((p) => {
           return (
-          <span className={ props.currentPage===p && s.selectedPage} key={p}
+          <span className={ props.currentPage===p ? s.selectedPage : ''} key={p}
           onClick={()=>props.onPageChanged(p)}>{p} </span>
           )
         })
@@ -32,7 +34,8 @@ const Users = (props) => {
             </div>
 
             {u.followed ?
-            <Button onClick={ () => {
+            <Button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ () => {
+              props.toggleFollowingProgress(true, u.id);
               axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
               {
                 withCredentials: true,
@@ -43,10 +46,12 @@ const Users = (props) => {
               .then(response => {
                 if (response.data.resultCode === 0) {
                   props.followStatusChange(u.id)}
+                  props.toggleFollowingProgress(false, u.id);
                 })
               }
               }>Unfollow</Button>:
-            <Button onClick={ () => {
+            <Button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ () => {
+              props.toggleFollowingProgress(true, u.id);
               axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, 
               {
                 withCredentials: true,
@@ -57,12 +62,13 @@ const Users = (props) => {
               .then(response => {
                 if (response.data.resultCode === 0) {
                   props.followStatusChange(u.id)}
+                  props.toggleFollowingProgress(false, u.id);
                 })
               }
               }>Follow</Button>}
           </div>
           <div className="col">
-              <div className={s.info + " row"}>
+              <Info isFollowed={u.followed}>
                 <div className={'row'} >
                   <div className="col">
                     <div>{u.name}</div>
@@ -71,7 +77,7 @@ const Users = (props) => {
                     <div>{u.status}</div>  
                   </div>
                 </div>
-              </div>
+              </Info>
           </div>
         </div>
         </div>)}
