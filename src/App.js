@@ -4,8 +4,9 @@ import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from './components/Profile/ProfileContainer';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import Login from './components/Login/Login';
 
 function App(props) {
   return (
@@ -14,8 +15,9 @@ function App(props) {
         <Navbar />
         <div className="main">
           <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-          <Route path='/dialogs'render={() => <Dialogs store = {props.store}/>}/>
+          <Route path='/dialogs'render={() => <DialogsContainer/>}/>
           <Route path='/users'render={() => <UsersContainer/>}/>
+          <Route path='/login'render={() => <Login/>}/>
         </div>
       </div>
   );

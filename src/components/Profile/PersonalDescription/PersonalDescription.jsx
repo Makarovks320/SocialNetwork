@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './PersonalDescription.module.css';
 import Preloader from '../../common/preloader/preloader';
+import ProfileStatus from './ProfileStatus';
 
 const PersonalDescription = (props) => {
     if (!props.profile) {
         return <Preloader/>
     }
-    debugger
   return (
     <div className={s.personal_data}>
         <img className={s.avatar} alt="avatar" 
@@ -35,6 +35,7 @@ const PersonalDescription = (props) => {
                 </tr>
             </tbody>
         </table>
+        <ProfileStatus status='sasdasasasdas'/>
     </div>
   )
 }

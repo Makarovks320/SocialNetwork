@@ -1,3 +1,4 @@
+import {usersAPI} from '../api/api';
 const FOLLOW_STATUS_CHANGE = 'FOLLOW_STATUS_CHANGE'
 const SET_USERS = 'SET_USERS'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
@@ -5,13 +6,14 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const TOGGLE_FETCHING = 'TOGGLE_FETCHING'
 const TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE_FOLLOWING_PROGRESS'
 
+
 let initialState = {
   users: [],
   totalUsersCount: 1,
   pageSize: 10,
   currentPage: 1,
   isFetching: false,
-  followingInProgress: [2, 3, 4]
+  followingInProgress: []
 }
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -55,11 +57,48 @@ export const followStatusChange = (userId) => ({ type: FOLLOW_STATUS_CHANGE, use
 export const setUsers = (userslist) => ({type: SET_USERS, users: userslist})
 
 export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count: count})
-
+ 
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 
 export const toggleIsFetching = (isfetching) => ({type: TOGGLE_FETCHING, isfetching})
 
 export const toggleFollowingProgress = (isfetching, userId) => ({type: TOGGLE_FOLLOWING_PROGRESS, isfetching, userId})
+
+export const getUsers =(currentPage, pageSize) => {
+  return (dispatch) => {
+  dispatch(toggleIsFetching(true))
+  usersAPI.getUsers(currentPage, pageSize).then(data => {
+    dispatch(toggleIsFetching(false))
+    dispatch(setUsers(data.items))
+    dispatch(setTotalUsersCount(data.totalCount))
+  })
+}}
+
+export const followUser = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId))
+    usersAPI.followUser(userId)
+    .then(data => {
+      if (data.resultCode === 0) {
+        dispatch(followStatusChange(userId))
+      }
+        dispatch(toggleFollowingProgress(false, userId))
+      })
+  }
+}
+
+export const unfollowUser = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    usersAPI.unfollowUser(userId)
+      .then(data => {
+        if (data.resultCode === 0) {
+          dispatch(followStatusChange(userId))
+        }
+        dispatch(toggleFollowingProgress(false, userId));
+      })
+  }
+}
+
 
 export default usersReducer;

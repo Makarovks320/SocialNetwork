@@ -5,7 +5,7 @@ import NewMessageContainer from './NewMessage/NewMessageContainer';
 
 
 const Messages = (props) => {
-  let messages_elements = props.store.getState().messagesPage.messages
+  let messages_elements = props.messages
   .map(m => <Message key={m.id} message={m.message} 
     author_id={m.author_id} />);
 
@@ -14,7 +14,7 @@ const Messages = (props) => {
         <div className={s.messages}>
           {messages_elements}
         </div>
-        <NewMessageContainer store = {props.store}/>
+        <NewMessageContainer />
       </div>
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
-import * as axios from 'axios';
 import Button from "react-bootstrap/Button";
 import s from './Users.module.css'
 import userPic from '../../img/genericUser.png'
@@ -34,38 +33,11 @@ const Users = (props) => {
             </div>
 
             {u.followed ?
-            <Button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ () => {
-              props.toggleFollowingProgress(true, u.id);
-              axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
-              {
-                withCredentials: true,
-                headers: {
-                  'API-KEY': 'e7349e98-057b-40d9-9127-715983016ca8'
-                }
-              })
-              .then(response => {
-                if (response.data.resultCode === 0) {
-                  props.followStatusChange(u.id)}
-                  props.toggleFollowingProgress(false, u.id);
-                })
-              }
-              }>Unfollow</Button>:
-            <Button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ () => {
-              props.toggleFollowingProgress(true, u.id);
-              axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, 
-              {
-                withCredentials: true,
-                headers: {
-                  'API-KEY': 'e7349e98-057b-40d9-9127-715983016ca8'
-                }
-              })
-              .then(response => {
-                if (response.data.resultCode === 0) {
-                  props.followStatusChange(u.id)}
-                  props.toggleFollowingProgress(false, u.id);
-                })
-              }
-              }>Follow</Button>}
+            <Button disabled={props.followingInProgress.some(id=>id === u.id)}
+            onClick={ () => {props.unfollowUser(u.id)}}>Unfollow</Button>:
+            <Button disabled={props.followingInProgress.some(id=>id === u.id)}
+            onClick={ () => {props.followUser(u.id)}}>Follow</Button>
+            }
           </div>
           <div className="col">
               <Info isFollowed={u.followed}>

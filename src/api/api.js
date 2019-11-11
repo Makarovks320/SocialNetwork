@@ -15,5 +15,28 @@ export const usersAPI = {
     .then(response => {
       return response.data;
     })
+  },
+  followUser(userId) {
+    return instance.post(`follow/${userId}`, {})
+    .then(response => {
+      return response.data;
+    })
+  },
+  unfollowUser(userId) {
+    return instance.delete(`follow/${userId}`)
+    .then(response => {
+      return response.data;
+    })
+  },
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`)
+    .then(response => {
+      return response.data;
+    })
   }
+}
+export const authAPI = {
+  me() {
+    return instance.get(`/auth/me`)
+    }
 }
