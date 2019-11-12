@@ -35,7 +35,7 @@ const PersonalDescription = (props) => {
                 </tr>
             </tbody>
         </table>
-        <ProfileStatus status='sasdasasasdas'/>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
     </div>
   )
 }
