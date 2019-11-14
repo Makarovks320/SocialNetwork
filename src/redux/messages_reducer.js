@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_MESSAGE_BODY = 'UPDATE_MESSAGE_BODY'
 
 let initialState = {
   dialogs: [
@@ -56,7 +55,6 @@ let initialState = {
       user_id: 5
     },
   ],
-  newMessageBody: '',
 }
 
 const messagesReducer = (state = initialState, action) => {
@@ -66,7 +64,7 @@ const messagesReducer = (state = initialState, action) => {
       let newMessage = {
         id: +state.messages[state.messages.length - 1].id + 1,
         author_id: '0',
-        message: state.newMessageBody,
+        message: action.sendMessageBody,
       }
       let stateCopy = {
         ...state,
@@ -74,27 +72,16 @@ const messagesReducer = (state = initialState, action) => {
         }
       if (stateCopy.newMessageBody !== '') {
         stateCopy.messages.push(newMessage);
-        stateCopy.newMessageBody = '';
       }
       return stateCopy;
     }
-    case 'UPDATE_MESSAGE_BODY':
-      return {
-        ...state,
-        newMessageBody: action.newMessageBody
-      }
     default:
       return state;
   }
 }
 
-export const addMessageActionCreator = () => ({
-  type: ADD_MESSAGE
-});
-
-export const updateMessageBodyActionCreator = (text) => ({
-  type: UPDATE_MESSAGE_BODY,
-  newMessageBody: text
+export const addMessageActionCreator = (sendMessageBody) => ({
+  type: ADD_MESSAGE, sendMessageBody
 });
 
 export default messagesReducer;
