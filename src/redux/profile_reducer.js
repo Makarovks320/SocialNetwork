@@ -42,12 +42,7 @@ const profileReducer = (state = initialState, action) => {
         text: action.newPostBody,
         likesCount: 0
       }
-      let stateCopy = {...state}
-      stateCopy.posts = [...state.posts]
-      if (state.newPostText !== '') {
-        stateCopy.posts.unshift(newPost);
-      }
-      return stateCopy;
+      return {...state, posts: [newPost, ...state.posts]};
     }
 
     case SET_USER_PROFILE:

@@ -6,7 +6,10 @@ const Header = (props) => {
     <div className={s.header}>
         <img className={s.logo} alt="logo" src="https://cdn.iconscout.com/icon/free/png-256/react-native-1-555609.png"></img>
         <div className={s.loginBlock}>
-          {props.isAuth ? props.login :
+          {props.isAuth ? 
+          <div>
+            {props.login} - <button onClick={props.logOut}>Log Out</button>
+          </div> :
           <NavLink to={'/login'}>Log In</NavLink>}
         </div>
     </div>
