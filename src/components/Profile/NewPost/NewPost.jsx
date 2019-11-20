@@ -17,11 +17,10 @@ return (<form onSubmit={props.handleSubmit}>
 
 const NewPostReduxForm =  reduxForm({form: 'newPost'})(NewPostForm)
 
-const NewPost = (props) => {
+const NewPost = React.memo(props => {
 const addPost = (formData) => {
   props.addPost(formData.newPostBody);
 }
-
   return (
     <div className={s.new_post_container}>
       <div className={s.wrapper}>
@@ -33,6 +32,6 @@ const addPost = (formData) => {
       </div>
     </div>
   )
-}
+})
 
 export default NewPost;
