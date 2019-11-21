@@ -3,12 +3,12 @@ import ProfileDescription from './ProfileDescription/ProfileDescription';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
 
-const Profile = (props) => {
+const Profile = ({profile, status, updateStatus, addPost, posts}) => {
   return (
     <main>  
-      <ProfileDescription profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
-      <NewPost addPost={props.addPost}/>
-      <Posts posts={props.posts}/>
+      <ProfileDescription profile={profile} status={status} updateStatus={updateStatus}/>
+      <NewPost addPost={addPost}/>
+      <Posts posts={posts}/>
       </main>
   )
 }
