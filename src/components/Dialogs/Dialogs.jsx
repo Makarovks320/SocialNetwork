@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Dialogs.module.css';
+import StyledWrapper from './Dialogs.styles.js';
 import DialogItems from './Dialog-items/DialogItems';
 import Messages from './Messages/Messages';
 import { NewPostContainer } from '../Profile/NewPost/NewPostContainer';
@@ -11,10 +11,10 @@ const Dialogs = (props) => {
   }
   return (
     <div>
-      <div className={s.dialogs}>
-      <DialogItems dialogs={props.dialogs}/>
-      <Messages messages = {props.messages}/>
-      </div>
+      <StyledWrapper styles={props.styles}>
+        <DialogItems dialogs={props.dialogs}/>
+        <Messages messages = {props.messages}/>
+      </StyledWrapper>
     <NewPostContainer styles={props.styles} onSubmit={addNewMessage}/>
     </div>
     
