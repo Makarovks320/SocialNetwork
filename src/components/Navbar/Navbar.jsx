@@ -1,29 +1,36 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
-import s from './Navbar.module.css';
+import { NavLink } from 'react-router-dom'
+import { AsideNavBar } from './Navbar.styles';
+import { connect } from 'react-redux';
 
-const Navbar = () => {
+
+const Navbar = (props) => {
   return (
-    <nav className={s.nav}>
-        <ul className={s.list}>
+    <AsideNavBar styles={props.styles}>
+      <nav className="nav">
+        <ul className="list">
           <li>
-            <NavLink className={s.item} to='/profile' activeClassName={s.activeLink}>My profile</NavLink>
+            <NavLink className="item" to='/profile' activeClassName="activeLink">My profile</NavLink>
           </li>
           <li>
-            <NavLink className={s.item} to='/dialogs' activeClassName={s.activeLink}>Messages</NavLink>
+            <NavLink className="item" to='/dialogs' activeClassName="activeLink">Messages</NavLink>
           </li>
           <li>
-            <NavLink className={s.item} to='/communities' activeClassName={s.activeLink}>Communities</NavLink>
+            <NavLink className="item" to='/communities' activeClassName="activeLink">Communities</NavLink>
           </li>
           <li>
-            <NavLink className={s.item} to='/news' activeClassName={s.activeLink}>News</NavLink>
+            <NavLink className="item" to='/news' activeClassName="activeLink">News</NavLink>
           </li>
           <li>
-            <NavLink className={s.item} to='/users' activeClassName={s.activeLink}>Users</NavLink>
+            <NavLink className="item" to='/users' activeClassName="activeLink">Users</NavLink>
           </li>
         </ul>
       </nav>
+    </AsideNavBar>
   )
 }
-
-export default Navbar;
+let mapStateToProps = (state) => {
+  return {
+  styles: state.theme.themeColors}
+}
+export default connect(mapStateToProps)(Navbar);

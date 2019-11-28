@@ -28,6 +28,7 @@ class UsersContainer extends React.Component {
         followingInProgress={this.props.followingInProgress}
         followUser={this.props.followUser}
         unfollowUser={this.props.unfollowUser}
+        styles={this.props.styles}
        />
        </div>
     )
@@ -41,7 +42,8 @@ const mapStateToProps = (state) => {
     pageSize: getPageSize(state),
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
-    followingInProgress: getFollowingInProgress(state)
+    followingInProgress: getFollowingInProgress(state),
+    styles: state.theme.themeColors
   }
 }
 

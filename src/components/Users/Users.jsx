@@ -15,7 +15,8 @@ const Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, users, ..
                             user ={u} 
                             followingInProgress={props.followingInProgress} 
                             unfollowUser={props.unfollowUser}
-                            followUser={props.followUser}/> 
+                            followUser={props.followUser}
+                            styles={props.styles}/> 
       )}
       </div>)
 }

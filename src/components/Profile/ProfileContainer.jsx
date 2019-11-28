@@ -28,7 +28,8 @@ let mapStateToProps = (state) => ({
   status: state.profilePage.status,
   newPostText: state.profilePage.newPostText,
   currentUserID: state.auth.userId,
-  isAuth: state.auth.isAuth
+  isAuth: state.auth.isAuth,
+  styles: state.theme.themeColors
 });
 
 export default compose(
