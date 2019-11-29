@@ -1,11 +1,11 @@
 import React from 'react';
-import CustomizedPagination from '../common/Pagination/Pagination';
+import Pagination from '../common/Pagination/Pagination';
 import User from './User';
 
 const Users = ({ totalUsersCount, pageSize, currentPage, onPageChanged, users, ...props }) => {
   return (
     <div>
-      <CustomizedPagination totalItemsCount={totalUsersCount}
+      <Pagination totalItemsCount={totalUsersCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChanged={onPageChanged}

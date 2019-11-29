@@ -20,10 +20,6 @@ const LoginForm = ({ handleSubmit, error }) => {
         <Form.Label>Password</Form.Label>
         {createField(Input, "password", [required], "password", "password")}
       </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Label>Check me out</Form.Label>
-        {createField(Input, "email", [], "email", "checkbox")}
-      </Form.Group>
 
       {error && <span className={s.summaryError}>{error}</span>}
 

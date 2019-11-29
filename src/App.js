@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import { initializeApp } from './redux/app_reducer';
 import { withSuspense } from './hoc/withSuspense';
+import s from './App.css'
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
 class App extends React.Component {
@@ -24,7 +25,7 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <HeaderContainer />
-        <Container>
+        <Container className={s.mainContainer}>
           <Row>
             <Col xs={12} sm={3}><Navbar /></Col>
             <Col xs={12} sm={9}>
