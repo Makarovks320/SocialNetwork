@@ -17,5 +17,4 @@
 }
 .container:not(:first-child) {
   min-height: calc(100vh - 260px);
-  border: 2px solid red;
 }
