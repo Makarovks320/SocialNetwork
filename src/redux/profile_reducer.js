@@ -3,6 +3,7 @@ import { usersAPI, profileAPI } from "../api/api"
 const ADD_POST = 'profile/ADD_POST'
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
 const SET_STATUS ='profile/SET_STATUS'
+const SET_AVATAR = 'SET_AVATAR'
 
 let initialState = {
   posts: [
@@ -55,6 +56,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         status: action.status
       }
+    case SET_AVATAR:
+      return {
+        ...state,
+        profile: {...state.profile, photos: action.photos}
+      }
 
   default:
   return state;
@@ -66,6 +72,8 @@ export const addPost = (newPostBody) => ({ type: ADD_POST, newPostBody})
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile})
 
 export const setStatus = (status) => ({ type: SET_STATUS, status})
+
+export const setAvatarSuccess = (photos) => ({ type: SET_AVATAR, photos})
 
 export const getUserProfile = (userId) => async (dispatch) => {
   let data = await usersAPI.getProfile(userId)
@@ -87,4 +95,13 @@ export const updateStatus = (status) => async (dispatch) => {
     }
   }
 
+export const saveAvatar = (photo) => async (dispatch) => {
+  let response = await profileAPI.saveAvatar(photo)
+  if (response.data.data.resultCode === 0) {
+    dispatch(setAvatarSuccess(response.data.photos))
+  }
+  else {
+    console.log('error: avatar update')
+  }
+}
 export default profileReducer;

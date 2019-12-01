@@ -5,6 +5,7 @@ export const Info = styled.div`
   background-color: ${(props)=>props.isFollowed ? props.styles.subBG : props.styles.mainLink};
   border: 2px solid black;
   border-radius: 10px;
-  color: ${(props)=>props.styles.hoverMainText};
+  color: ${(props)=>props.styles.hoverMainText}
+  //{(props)=>props.isFollowed ? props.styles.mainLink : props.styles.hoverMainText};
 `;
 
