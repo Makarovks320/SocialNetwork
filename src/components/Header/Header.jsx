@@ -7,10 +7,7 @@ import bootstrapLogo from '../../img/bootstrap-logo.svg'
 const Header = (props) => {
   let [currentTheme, setCurrentTheme] = useState("dark")
   let [currentVariant, setCurrentVariant] = useState("dark")
-  // const switchTheme = (bgColor, fontColor) => {
-  //   setCurrentTheme(bgColor)
-  //   setCurrentVariant(fontColor);
-  // }
+
   const setDarkTheme = () => {
     props.setDarkTheme();
     setCurrentTheme("dark");
@@ -48,7 +45,7 @@ const Header = (props) => {
         <Form inline>
         {props.isAuth ?
           <div>
-          <span className="text-white">{props.login} - </span> 
+          <span style={{color: "#fff"}}>{props.login} - </span> 
           <Button variant="success" onClick={props.logOut}>Log Out</Button>
           </div>:
           <Button variant="success" href={'/login'}>Log in</Button>}

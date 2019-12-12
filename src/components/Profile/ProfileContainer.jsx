@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import {addPost, getUserProfile, getUserStatus, updateStatus, saveAvatar } from '../../redux/profile_reducer';
+import {addPost, getUserProfile, getUserStatus, updateStatus, saveAvatar, saveProfileData } from '../../redux/profile_reducer';
 import {withRouter} from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
@@ -38,10 +38,11 @@ let mapStateToProps = (state) => ({
   newPostText: state.profilePage.newPostText,
   currentUserID: state.auth.userId,
   isAuth: state.auth.isAuth,
-  styles: state.theme.themeColors
+  styles: state.theme.themeColors,
+  saveProfileData: state.profilePage
 });
 
 export default compose(
-  connect(mapStateToProps, {addPost, getUserProfile, getUserStatus, updateStatus, saveAvatar}),
+  connect(mapStateToProps, {addPost, getUserProfile, getUserStatus, updateStatus, saveAvatar, saveProfileData}),
   withRouter,
   withAuthRedirect)(ProfileContainer)

@@ -104,4 +104,13 @@ export const saveAvatar = (photo) => async (dispatch) => {
     console.log('error: avatar update')
   }
 }
+
+export const saveProfileData = (formData) => async (dispatch, getState) => {
+  let response = await profileAPI.saveProfileData(formData);
+  const userId = getState().auth.userId;
+  debugger
+    if (response.data.resultCode===0) {
+      dispatch(getUserProfile(userId))
+    }
+}
 export default profileReducer;

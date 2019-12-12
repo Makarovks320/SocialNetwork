@@ -3,9 +3,7 @@ import ProfileDescription from './ProfileDescription/ProfileDescription';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
 
-const Profile = ({profile, status, updateStatus, addPost, posts, styles, isOwner, saveAvatar}) => {
-  
-  debugger
+const Profile = ({profile, status, updateStatus, addPost, posts, styles, isOwner, saveAvatar, saveProfileData}) => {
   return (
     <main>  
       <ProfileDescription isOwner={isOwner}
@@ -13,7 +11,8 @@ const Profile = ({profile, status, updateStatus, addPost, posts, styles, isOwner
                           profile={profile}
                           status={status}
                           updateStatus={updateStatus}
-                          styles={styles}/>
+                          styles={styles}
+                          saveProfileData = {saveProfileData}/>
       <NewPost addPost={addPost} styles={styles}/>
       <Posts posts={posts} styles={styles}/>
     </main>

@@ -6,7 +6,6 @@ import { NewPostContainer } from '../Profile/NewPost/NewPostContainer';
 
 const Dialogs = (props) => {
   const addNewMessage = (formData) => {
-    debugger
     props.sendMessage(formData.newBody)
   }
   return (

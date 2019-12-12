@@ -46,6 +46,9 @@ export const profileAPI = {
   updateStatus(status) {
     return instance.put(`/profile/status/`, {status: status})
   },
+  saveProfileData(progileData) {
+    return instance.put(`/profile/`, progileData)
+  },
   saveAvatar(photo) {
     const formData = new FormData();
     formData.append("image", photo);

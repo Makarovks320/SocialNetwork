@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Status } from './PersonalData.styles';
 
 
 const ProfileStatusWithHook = (props) => {
@@ -23,8 +24,8 @@ const ProfileStatusWithHook = (props) => {
   return (
     <>
     {!editMode &&
-    <div>
-      <span onClick = { props.isOwner && activateEditMode}>{status || 'No status'}</span>
+    <div onClick = { props.isOwner && activateEditMode}>
+      <Status status={props.status} isOwner={props.isOwner}>{status || (props.isOwner && 'set a status message')}</Status>
     </div>
     }
     {editMode && props.isOwner && 

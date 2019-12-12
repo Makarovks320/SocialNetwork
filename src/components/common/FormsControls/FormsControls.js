@@ -7,7 +7,7 @@ import { Form } from 'react-bootstrap'
 const FormsControl = ({meta: {touched, error}, children}) => {
   const  isError = (error && touched);
   return (
-    <div className={s.formControl + ' ' + ( isError ? s.error : '')}>
+    <div className={isError ? s.error : ''}>
       {children}
       { isError && <span>{error}</span>}
     </div>
