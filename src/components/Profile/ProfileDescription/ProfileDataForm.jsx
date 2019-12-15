@@ -1,23 +1,18 @@
-import React/*, {useState}*/ from 'react';
+import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Accordion, Card } from 'react-bootstrap';
 import { reduxForm, Field } from 'redux-form';
 import { Input, createField, Textarea } from '../../common/FormsControls/FormsControls';
 import { required } from '../../../utils/validators/validators';
 import { PersonalDataForm } from './PersonalData.styles';
+import s from '../../common/FormsControls/FormsControls.module.css'
 
 
-const EditProfileForm = ({ profile, deactivateEditMode, handleSubmit }) => {
-    // let [isJobDescriptionField, switchJobDescriptionField] = useState(false);
-    // const showJobDescriptionField = () => {
-    //     switchJobDescriptionField(true)
-    // }
-    // const hideJobDescriptionField = () => {
-    //     switchJobDescriptionField(false)
-    // }
+const EditProfileForm = ({ profile, deactivateEditMode, handleSubmit, error }) => {
     return (
     <PersonalDataForm>
         <Form className="form" onSubmit={handleSubmit}>
+        {error && <span className={s.summaryError}>{error}</span>}
             <tbody>
                     <tr className="formRow">
                         <td><span>Full name: </span></td>
@@ -60,20 +55,19 @@ const EditProfileReduxForm = reduxForm({ form: 'editProfile' })(EditProfileForm)
 
 export const ProfileDataForm = ({profile, deactivateEditMode, saveProfileData}) => {
     const onSubmit = (formData) => {
-            console.log(formData);
-            saveProfileData(formData);
-            deactivateEditMode();
+            saveProfileData(formData)
+            .then( () => deactivateEditMode() )
     }
     return (
         <EditProfileReduxForm profile={profile} initialValues={profile} onSubmit={onSubmit} deactivateEditMode={deactivateEditMode}/>
     )
 }
 
-const Contact = ({contactTitle, contactValue}) => {
+const Contact = ({contactTitle}) => {
     return (
         <tr className="formRow">
             <td><span>{contactTitle}: </span></td>
-            <td>{createField(Input, contactTitle, [], '', '', {value: {contactValue}})}</td>
+            <td>{createField(Input, 'contacts.'+ contactTitle, [], contactTitle, '')}</td>
         </tr>
     )
 }

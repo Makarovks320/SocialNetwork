@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
     login: state.auth.login,
-    styles: state.theme.themeColors
+    styles: state.theme.themeColors,
   }
 }
 

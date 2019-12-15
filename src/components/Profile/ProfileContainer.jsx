@@ -8,7 +8,7 @@ import { compose } from 'redux';
 
 
 class ProfileContainer extends React.Component {
-  refreshProfile() {      //вынесли в отдельную функцию
+  refreshProfile() {
     let userId = this.props.match.params.userId;
     if (!userId){ userId = this.props.currentUserID};
     this.props.getUserProfile(userId);

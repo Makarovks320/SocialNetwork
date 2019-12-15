@@ -13,7 +13,7 @@ const NewPostForm = (props) => {
     props.reset();
   }
   return (<form onSubmit={onSubmitLocal}>
-   <Field class="form-control" component={Textarea} name="newBody" placeholder="Write your post here..."
+   <Field className="form-control" component={Textarea} name="newBody" placeholder="Write your post here..."
    validate={[required, maxLengthValidator, minLengthValidator]}/>
         <Button type="submit" variant="light">Post</Button>
         </form>)

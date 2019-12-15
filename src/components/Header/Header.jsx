@@ -5,6 +5,7 @@ import reactLogo from '../../img/react-logo.svg'
 import bootstrapLogo from '../../img/bootstrap-logo.svg'
 
 const Header = (props) => {
+  debugger
   let [currentTheme, setCurrentTheme] = useState("dark")
   let [currentVariant, setCurrentVariant] = useState("dark")
 

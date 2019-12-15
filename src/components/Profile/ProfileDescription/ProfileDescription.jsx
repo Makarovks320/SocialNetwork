@@ -30,8 +30,8 @@ const ProfileDescription = ({profile, isOwner, status, styles, saveAvatar, updat
         src={profile.photos.large || userPic} width="150px"/>
         {isOwner && 
             <ProfileMenu onChange={onMainPhotoSelected} styles={styles}>
-                <label class="updatePhoto">Update photo<input type="file"/></label>
-                {!editMode && <span class="setProfile" onClick={activateEditMode}>Edit profile data</span>}
+                <label className="updatePhoto">Update photo<input type="file"/></label>
+                {!editMode && <span className="setProfile" onClick={activateEditMode}>Edit profile data</span>}
             </ProfileMenu>
         }
         </div>
