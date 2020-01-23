@@ -25,7 +25,7 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <HeaderContainer />
-        <Container className={s.mainContainer}>
+        <Container className={s.container}>
           <Row>
             <Col xs={12} sm={3}><Navbar /></Col>
             <Col xs={12} sm={9}>
