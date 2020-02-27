@@ -1,8 +1,6 @@
-!!!Логин и пароль для авторизации!!!
-Login:
-k.s.makarov@yandex.ru
-Password:
-pilipkamasutra123
+!!!Email и пароль для авторизации!!!
+Email: free@samuraijs.com
+Password: free
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
