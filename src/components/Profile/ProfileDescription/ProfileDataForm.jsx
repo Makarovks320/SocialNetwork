@@ -13,6 +13,7 @@ const EditProfileForm = ({ profile, deactivateEditMode, handleSubmit, error }) =
     <PersonalDataForm>
         <Form className="form" onSubmit={handleSubmit}>
         {error && <span className={s.summaryError}>{error}</span>}
+        <table>
             <tbody>
                     <tr className="formRow">
                         <td><span>Full name: </span></td>
@@ -31,17 +32,20 @@ const EditProfileForm = ({ profile, deactivateEditMode, handleSubmit, error }) =
                         <td>{createField(Textarea, "lookingForAJobDescription", [required], "Professional skills")}</td>
                     </tr>
             </tbody>
+        </table>
             <Accordion defaultActiveKey="0">
                 <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="1">
                         Show Contacts
                     </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1"  id="collapsetbody" classname="collapsetbody">
-                        <div classname="collapsetbody">
+                    <Accordion.Collapse eventKey="1"  id="collapsetbody" className="collapsetbody">
+                        <table>
+                            <tbody>
                                 {Object.keys(profile.contacts).map(key => {
                                     return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
                                 })}
-                        </div>
+                            </tbody>
+                        </table>
                     </Accordion.Collapse>
                 </Card>
             </Accordion>

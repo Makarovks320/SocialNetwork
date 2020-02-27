@@ -83,6 +83,9 @@ export const PersonalDataForm = styled.div`
   span {
     margin-right: 10px;
   }
+  table {
+  width: 100%;
+  }
   .formRow {
     display: flex;
     justify-content: space-between;

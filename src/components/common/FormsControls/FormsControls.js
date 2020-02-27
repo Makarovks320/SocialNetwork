@@ -16,13 +16,21 @@ const FormsControl = ({meta: {touched, error}, children}) => {
 
 export const Textarea = (props) => {
   const {input, meta, ...restProps} = props;
-  return <FormsControl {...props}><textarea {...input} {...meta} {...restProps}></textarea></FormsControl>
+  const newMeta = {};
+  for (let key in meta) {
+    newMeta[key.toLowerCase()] = meta[key] + ''
+  }
+  return <FormsControl {...props}><textarea {...input} {...newMeta} {...restProps}></textarea></FormsControl>
 }
 
 export const Input = (props) => {
   const {input, meta, ...restProps} = props;
+  const newMeta = {};
+  for (let key in meta) {
+    newMeta[key.toLowerCase()] = meta[key] + ''
+  }
   return <FormsControl {...props}>
-          <Form.Control {...input} {...meta} {...restProps}/>
+          <Form.Control {...input} {...newMeta} {...restProps}/>
         </FormsControl>
 }
 
