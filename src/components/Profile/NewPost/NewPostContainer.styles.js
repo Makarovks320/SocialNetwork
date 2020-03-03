@@ -12,13 +12,7 @@ const NewPostContainer = styled.div`
 .wrapper {
   display: flex;
 }
-.thumbnail {
-  margin-right: 10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-}
+
 form {
   display: block;
   box-sizing: border-box;

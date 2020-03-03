@@ -15,12 +15,6 @@ const PostContainer = styled.div`
   display: flex;
 }
 
-.thumbnail {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-}
 .wrapper .post_info {
   margin: 10px;
   display: flex;

@@ -9,23 +9,16 @@ const SET_AVATAR = 'SET_AVATAR'
 const initialState = {
   posts: [
     {
-      id: 3,
-      datetime: '2019-11-18T09:54',
-      author: 'Anastacia Zavorotnyuk',
-      text: 'Скиньте деньги на лечение, пожалуйста!',
-      likesCount: '289'
-    },
-    {
       id: 2,
-      datetime: '2017-11-18T09:54',
-      author: 'Anastacia Zavorotnyuk',
+      datetime: '04-09-2019 16:53',
+      author: 'Kirill Makarov',
       text: 'adsasdas',
       likesCount: '150'
     },
     {
       id: 1,
-      datetime: '2016-11-18T09:54',
-      author: 'Anastacia Zavorotnyuk',
+      datetime: '18-11-2019 20:21',
+      author: 'Kirill Makarov',
       text: 'Post content: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi sed facilis eos, dolorum enim vel distinctio doloremque molest',
       likesCount: '64'
     }
@@ -37,10 +30,13 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {
+      const date = new Date();
+      const localDate = date.toLocaleDateString().replace(/\./g, '-');
+      const localTime = date.toLocaleTimeString().slice(0, 5);
       const newPost = {
         id: +state.posts[0].id + 1,
-        datetime: '2019-11-18T09:54',
-        author: 'Anastacia Zavorotnyuk',
+        datetime: `${localDate} ${localTime}`,
+        author: action.userName || 'Anastacia Zavorotnyuk',
         text: action.newPostBody,
         likesCount: 0
       }
@@ -68,7 +64,7 @@ const profileReducer = (state = initialState, action) => {
 }
 }
 
-export const addPost = (newPostBody) => ({ type: ADD_POST, newPostBody})
+export const addPost = (newPostBody, userName) => ({ type: ADD_POST, newPostBody, userName})
 
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile})
 

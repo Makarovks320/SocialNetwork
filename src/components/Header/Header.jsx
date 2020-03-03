@@ -3,6 +3,7 @@ import {Navbar, Nav, NavDropdown, Form, Button} from 'react-bootstrap'
 import reduxLogo from '../../img/redux-logo.svg'
 import reactLogo from '../../img/react-logo.svg'
 import bootstrapLogo from '../../img/bootstrap-logo.svg'
+import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
   let [currentTheme, setCurrentTheme] = useState("dark")
@@ -44,11 +45,13 @@ const Header = (props) => {
         </Nav>
         <Form inline>
         {props.isAuth ?
-          <div>
-          <span style={{color: "#fff"}}>{props.login} - </span> 
-          <Button variant="success" onClick={props.logOut}>Log Out</Button>
-          </div>:
-          <Button variant="success" href={'/login'}>Log in</Button>}
+            <div>
+              <Button variant="success" onClick={props.logOut}>Log Out</Button>
+            </div>:
+            <div>
+              <NavLink to='/login' activeClassName="activeLink"><Button variant="success">Log in</Button></NavLink>
+            </div>
+        }
         </Form>
       </Navbar.Collapse>
     </Navbar>

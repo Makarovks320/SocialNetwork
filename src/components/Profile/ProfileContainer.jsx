@@ -10,7 +10,7 @@ import { compose } from 'redux';
 class ProfileContainer extends React.Component {
   refreshProfile() {
     let userId = this.props.match.params.userId;
-    if (!userId){ userId = this.props.currentUserID};
+    if (!userId){ userId = this.props.currentUserId};
     this.props.getUserProfile(userId);
     this.props.getUserStatus(userId);
   }
@@ -36,7 +36,7 @@ let mapStateToProps = (state) => ({
   posts: state.profilePage.posts,
   status: state.profilePage.status,
   newPostText: state.profilePage.newPostText,
-  currentUserID: state.auth.userId,
+  currentUserId: state.auth.userId,
   isAuth: state.auth.isAuth,
   styles: state.theme.themeColors,
   saveProfileData: state.profilePage

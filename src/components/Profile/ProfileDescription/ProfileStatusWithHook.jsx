@@ -30,7 +30,7 @@ const ProfileStatusWithHook = (props) => {
     }
     {editMode && props.isOwner && 
     <div>
-      <input class="form-control" autoFocus={true} onChange={onStatusChange} value={status} onBlur={deactivateEditMode}/>
+      <input className="form-control" autoFocus={true} onChange={onStatusChange} value={status} onBlur={deactivateEditMode}/>
     </div>
     }
     </>
