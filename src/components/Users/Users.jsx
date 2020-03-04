@@ -3,7 +3,6 @@ import Pagination from '../common/Pagination/Pagination';
 import User from './User';
 
 const Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, users, ...props}) => {
-    debugger
     return (
         <div>
             <Pagination totalItemsCount={totalUsersCount}
