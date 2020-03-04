@@ -4,8 +4,8 @@ const NewPostContainer = styled.div`
 {
   margin: 20px 0;
   padding: 5px;
-  background-color: ${(props)=>props.styles.mainBG};
-  border: 2px solid ${(props)=>props.styles.mainBorder};
+  background-color: ${(props) => props.styles.mainBG};
+  border: 2px solid ${(props) => props.styles.mainBorder};
   border-radius: 10px;
 }
 

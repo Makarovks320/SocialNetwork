@@ -1,17 +1,18 @@
 import React from "react";
 import {withRouter} from 'react-router-dom';
 import userPic from "../../../img/genericUser.png";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import s from "./thumbnail.module.css";
 import {getUserProfile} from "../../../redux/profile_reducer";
 import {compose} from "redux";
 
-class Thumbnail  extends React.Component {
+class Thumbnail extends React.Component {
     refreshThumbnail() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.currentUserId
-        };
+        }
+        ;
         this.props.getUserProfile(userId);
     }
 
@@ -40,10 +41,11 @@ class Thumbnail  extends React.Component {
         )
     }
 }
+
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     currentUserId: state.auth.userId
 });
 export default compose(
     connect(mapStateToProps, {getUserProfile}),
-    withRouter) (Thumbnail);
+    withRouter)(Thumbnail);

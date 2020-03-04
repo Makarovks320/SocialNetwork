@@ -12,7 +12,7 @@ const Profile = ({profile, status, updateStatus, addPost, posts, styles, isOwner
                                 status={status}
                                 updateStatus={updateStatus}
                                 styles={styles}
-                                saveProfileData = {saveProfileData}/>
+                                saveProfileData={saveProfileData}/>
             {isOwner &&
             <NewPost addPost={addPost} styles={styles}
                      profile={profile}/>
