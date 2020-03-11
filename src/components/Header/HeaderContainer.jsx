@@ -20,6 +20,7 @@ const mapStateToProps = (state) => {
         isAuth: state.auth.isAuth,
         login: state.auth.login,
         styles: state.theme.themeColors,
+        fullName: state.profilePage.profile && state.profilePage.profile.fullName
     }
 }
 

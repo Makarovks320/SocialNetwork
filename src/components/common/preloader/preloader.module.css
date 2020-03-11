@@ -9,7 +9,7 @@
 
 .preloader {
     position: absolute;
-    top: 40%;
+    top: 10%;
     left: calc(50% - 300px);
     height: 200px;
     width: 600px;

@@ -56,8 +56,8 @@ const themeReducer = (state = initialState, action) => {
                 ...state,
                 themeColors: {
                     mainBorder: "black",
-                    mainBG: "#83bfff",
-                    subBG: "#007bff",
+                    mainBG: "#007bff",
+                    subBG: "#83bfff",
                     followedBG: "rgb(40, 164, 64)",
                     unfollowedBG: "rgb(228, 127, 127)",
                     mainLink: "#83bfff",

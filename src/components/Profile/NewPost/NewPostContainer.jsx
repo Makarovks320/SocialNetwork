@@ -4,7 +4,6 @@ import {Field, reduxForm} from 'redux-form';
 import {required, maxLengthCreator, minLengthCreator} from '../../../utils/validators/validators';
 import {Textarea} from '../../common/FormsControls/FormsControls';
 import Button from 'react-bootstrap/Button'
-import userPic from "../../../img/genericUser.png";
 import Thumbnail from "../../common/Thumbnail/thumbnail";
 
 const maxLengthValidator = maxLengthCreator(30);
