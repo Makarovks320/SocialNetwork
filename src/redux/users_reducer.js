@@ -62,9 +62,9 @@ export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, coun
 
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 
-export const toggleIsFetching = (isfetching) => ({type: TOGGLE_FETCHING, isfetching})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_FETCHING, isFetching})
 
-export const toggleFollowingProgress = (isfetching, userId) => ({type: TOGGLE_FOLLOWING_PROGRESS, isfetching, userId})
+export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROGRESS, isFetching, userId})
 
 export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
     dispatch(toggleIsFetching(true))
