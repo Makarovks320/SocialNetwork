@@ -1,3 +1,10 @@
+.pagination a,
+.pagination span {
+    text-align: center;
+    min-width: 2.8rem;
+    margin-left: -1px;
+    padding: .5rem;
+}
 .selectedPage {
     font-weight: bold;
 }

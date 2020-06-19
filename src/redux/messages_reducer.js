@@ -20,7 +20,7 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case 'ADD_MESSAGE': {
+        case ADD_MESSAGE: {
             let newMessage = {
                 id: +state.messages[state.messages.length - 1].id + 1,
                 author_id: '0',

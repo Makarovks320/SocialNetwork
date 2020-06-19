@@ -9,7 +9,7 @@ const Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, users, ..
                         pageSize={pageSize}
                         currentPage={currentPage}
                         onPageChanged={onPageChanged}
-                        portionSize={10}/>
+                        portionSize={5}/>
 
             {users.map(u => <User key={u.id}
                                   user={u}

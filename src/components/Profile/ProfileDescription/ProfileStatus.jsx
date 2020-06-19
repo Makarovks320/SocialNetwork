@@ -6,7 +6,7 @@ class ProfileStatus extends React.Component {
         editMode: false,
         status: this.props.status
     }
-    activateEditMode = () => { // стрелочная функция, чтобы не передать контекст, когда передадим этот метод в обработчик onclick
+    activateEditMode = () => {
         this.setState({
             editMode: true
         })
