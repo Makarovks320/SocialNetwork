@@ -20,7 +20,10 @@ export const Textarea = (props) => {
     for (let key in meta) {
         newMeta[key.toLowerCase()] = meta[key] + ''
     }
-    return <FormsControl {...props}><textarea {...input} {...newMeta} {...restProps}></textarea></FormsControl>
+    return <FormsControl {...props}>
+        <textarea {...input} {...newMeta} {...restProps}></textarea>
+        {/*<Form.Control {...input} {...newMeta} {...restProps} as="textarea" rows="3" />*/}
+    </FormsControl>
 }
 
 export const Input = (props) => {
@@ -34,6 +37,13 @@ export const Input = (props) => {
     </FormsControl>
 }
 
-export const createField = (component, name, validators, placeholder, type) => {
-    return <Field component={component} name={name} validate={validators} placeholder={placeholder} type={type}/>
+export const Check = (props) => {
+    const {input, meta, ...restProps} = props;
+    return <FormsControl {...props}>
+        <Form.Check {...input} {...restProps} value="false"/>
+    </FormsControl>
+}
+
+export const createField = (component, name, validators, placeholder, type, label) => {
+    return <Field component={component} name={name} validate={validators} placeholder={placeholder} type={type} label={label}/>
 }

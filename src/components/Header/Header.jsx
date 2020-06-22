@@ -33,19 +33,19 @@ const Header = (props) => {
     return (
         <Navbar bg={currentTheme} variant={currentVariant} expand="md" className="mb-3">
             <Navbar.Brand href="#home">React Developers Network</Navbar.Brand>
-            <img alt="logo" src={reactLogo} style={{width: 50}} className="ml-1"></img>
-            <img alt="logo" src={reduxLogo} style={{width: 50}} className="ml-1"></img>
-            <img alt="logo" src={bootstrapLogo} style={{width: 50}} className="ml-1"></img>
+            <img alt="logo" src={reactLogo} style={{width: 50}} className="ml-1"/>
+            <img alt="logo" src={reduxLogo} style={{width: 50}} className="ml-1"/>
+            <img alt="logo" src={bootstrapLogo} style={{width: 50}} className="ml-1"/>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <NavDropdown title="Theme" className="ml-5" id="basic-nav-dropdown">
                         <NavDropdown.Item onClick={setLightTheme}>Light&nbsp;<i
-                            className="fas fa-palette"></i></NavDropdown.Item>
+                            className="fas fa-palette"/></NavDropdown.Item>
                         <NavDropdown.Item onClick={setDarkTheme}>Dark&nbsp;<i
-                            className="fas fa-palette"></i></NavDropdown.Item>
+                            className="fas fa-palette"/></NavDropdown.Item>
                         <NavDropdown.Item onClick={setBlueTheme}>Blue&nbsp;<i
-                            className="fas fa-palette"></i></NavDropdown.Item>
+                            className="fas fa-palette"/></NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form inline>
