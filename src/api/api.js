@@ -30,6 +30,12 @@ export const usersAPI = {
     getProfile(userId) {
         console.warn('obsolete method. Use profileAPI object')
         return profileAPI.getProfile(userId)
+    },
+    getThumbnailData(userId) {
+        return instance.get(`profile/${userId}`)
+            .then(response => {
+                return response.data;
+            })
     }
 }
 
@@ -46,8 +52,8 @@ export const profileAPI = {
     updateStatus(status) {
         return instance.put(`/profile/status/`, {status: status})
     },
-    saveProfileData(progileData) {
-        return instance.put(`/profile/`, progileData)
+    saveProfileData(profileData ) {
+        return instance.put(`/profile/`, profileData)
     },
     saveAvatar(photo) {
         const formData = new FormData();

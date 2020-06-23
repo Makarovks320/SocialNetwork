@@ -52,7 +52,7 @@ const Header = (props) => {
                     {props.isAuth ?
                         <StyledRightAside styles={props.styles}>
                             <Thumbnail/>
-                            <span>{props.fullName}</span>
+                            <span>{props.authorizedUserName}</span>
                             <Button variant="success" onClick={props.logOut}>Log Out</Button>
                         </StyledRightAside> :
                         <div>

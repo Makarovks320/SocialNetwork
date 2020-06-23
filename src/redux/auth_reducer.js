@@ -1,5 +1,6 @@
-import {authAPI} from '../api/api'
+import {authAPI, usersAPI} from '../api/api'
 import {stopSubmit} from 'redux-form'
+import {forgetAuthorizedUser, rememberAuthorizedUser, setUserProfile} from "./profile_reducer";
 
 const SET_USER_DATA = 'auth/SET_USER_DATA'
 
@@ -32,6 +33,9 @@ export const getAuthUserData = () => async (dispatch) => {
     if (response.data.resultCode === 0) {
         let {id, email, login} = response.data.data
         dispatch(setAuthUserData(id, email, login, true))
+        const data = await usersAPI.getProfile(id)
+        await dispatch(setUserProfile(data))
+        dispatch(rememberAuthorizedUser())
     }
 }
 
@@ -48,6 +52,7 @@ export const logOut = () => async (dispatch) => {
     let response = await authAPI.logOut()
     if (response.data.resultCode === 0) {
         dispatch(setAuthUserData(null, null, null, false))
+        dispatch(forgetAuthorizedUser())
     }
 }
 

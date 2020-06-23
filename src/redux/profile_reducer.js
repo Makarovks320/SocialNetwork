@@ -5,6 +5,8 @@ const ADD_POST = 'profile/ADD_POST'
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
 const SET_STATUS = 'profile/SET_STATUS'
 const SET_AVATAR = 'SET_AVATAR'
+const REMEMBER_AUTHORIZED_USER = 'REMEMBER_AUTHORIZED_USER'
+const FORGET_AUTHORIZED_USER = 'FORGET_AUTHORIZED_USER'
 
 const initialState = {
     posts: [
@@ -24,7 +26,11 @@ const initialState = {
         }
     ],
     profile: null,
-    status: ''
+    status: '',
+    authorizedData: {
+        userName: '',
+        userPhoto: null,
+    }
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -58,7 +64,20 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             }
-
+        case REMEMBER_AUTHORIZED_USER:
+            if (state.profile) {
+                return {
+                    ...state,
+                    authorizedData: {userName: state.profile.fullName, userPhoto: state.profile.photos.small}
+                }
+            }
+            return state;
+        case FORGET_AUTHORIZED_USER:
+                return {
+                    ...state,
+                    authorizedData: {userName: '', userPhoto: null}
+                }
+            return state;
         default:
             return state;
     }
@@ -71,6 +90,10 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
 
 export const setAvatarSuccess = (photos) => ({type: SET_AVATAR, photos})
+
+export const rememberAuthorizedUser = () => ({type: REMEMBER_AUTHORIZED_USER})
+
+export const forgetAuthorizedUser = () => ({type: FORGET_AUTHORIZED_USER})
 
 export const getUserProfile = (userId) => async (dispatch) => {
     const data = await usersAPI.getProfile(userId)

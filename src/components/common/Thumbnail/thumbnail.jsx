@@ -1,51 +1,26 @@
 import React from "react";
-import {withRouter} from 'react-router-dom';
 import userPic from "../../../img/genericUser.png";
 import {connect} from 'react-redux';
-import s from "./thumbnail.module.css";
-import {getUserProfile} from "../../../redux/profile_reducer";
-import {compose} from "redux";
+import styled from "styled-components";
 
-class Thumbnail extends React.Component {
-    refreshThumbnail() {
-        let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = this.props.currentUserId
-        }
-        ;
-        this.props.getUserProfile(userId);
-    }
+const StyledThumbnail = styled.div`{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}`
 
-    componentDidMount() {
-        this.refreshThumbnail();
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.match.params.userId !== this.props.match.params.userId) {
-            this.refreshThumbnail();
-        }
-    }
-
-    render() {
-        if (!this.props.profile) {
-            return (
-                <div className={s.thumbnail}>
-                    <img className={s.avatar} alt="avatar" src={userPic} width="100%"/>
-                </div>
-            )
-        }
-        return (
-            <div className={s.thumbnail}>
-                <img className={s.avatar} alt="avatar" src={this.props.profile.photos.small || userPic} width="100%"/>
-            </div>
-        )
-    }
+const Thumbnail = (props) => {
+    return (
+        <StyledThumbnail>
+            <img alt="avatar" src={!props.authorizedUserPhoto ? userPic : props.authorizedUserPhoto || userPic} width="100%"/>
+        </StyledThumbnail>
+    )
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    currentUserId: state.auth.userId
+    authorizedUserPhoto: state.profilePage.authorizedData.userPhoto,
 });
-export default compose(
-    connect(mapStateToProps, {getUserProfile}),
-    withRouter)(Thumbnail);
+export default connect(mapStateToProps)(Thumbnail);
