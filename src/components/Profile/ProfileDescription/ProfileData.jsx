@@ -18,7 +18,7 @@ export const ProfileData = ({profile, isOwner, status, updateStatus}) => {
                     <td>{profile.aboutMe}</td>
                 </tr>
                 <tr>
-                    <td>lookingForAJob:</td>
+                    <td>Looking for a job:</td>
                     <td>{profile.lookingForAJob ? 'Yes' : 'No'}</td>
                 </tr>
                 <tr>

@@ -25,9 +25,9 @@ const ProfileDescription = ({profile, isOwner, status, styles, saveAvatar, updat
     return (
         <PersonalData styles={styles}>
             <div className="personalDataContainer">
-                <div>
-                    <img className="avatar" alt="avatar"
-                         src={profile.photos.large || userPic} width="150px"/>
+                <div className="avatarBlock">
+                    <img alt="avatar"
+                         src={profile.photos.large || userPic} width="100%"/>
                     {isOwner &&
                     <ProfileMenu onChange={onMainPhotoSelected} styles={styles}>
                         <label className="updatePhoto">Update photo<input type="file"/></label>

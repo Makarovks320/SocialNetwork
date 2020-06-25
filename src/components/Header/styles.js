@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledRightAside = styled.div`
+export const StyledRightAside = styled.div`
 {
     display: flex;
 }
@@ -10,4 +10,8 @@ span {
 }
 `
 
-export default StyledRightAside;
+export const LogoBlock = styled.div`
+img {
+    width: 50px;
+}
+`

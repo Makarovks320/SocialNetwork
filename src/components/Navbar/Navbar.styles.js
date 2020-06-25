@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const AsideNavBar = styled.div`
 .nav {
+min-width: 8rem;
 background-color: ${(props) => props.styles.mainBG};
 color: ${(props) => props.styles.mainLink};
 border-radius: 10px;

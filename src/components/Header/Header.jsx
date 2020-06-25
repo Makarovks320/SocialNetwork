@@ -5,7 +5,7 @@ import reactLogo from '../../img/react-logo.svg'
 import bootstrapLogo from '../../img/bootstrap-logo.svg'
 import {NavLink} from "react-router-dom";
 import Thumbnail from "../common/Thumbnail/thumbnail";
-import StyledRightAside from './styles';
+import {StyledRightAside, LogoBlock} from './styles';
 
 const Header = (props) => {
     let [currentTheme, setCurrentTheme] = useState("dark")
@@ -33,9 +33,11 @@ const Header = (props) => {
     return (
         <Navbar bg={currentTheme} variant={currentVariant} expand="md" className="mb-3">
             <Navbar.Brand href="#home">React Developers Network</Navbar.Brand>
-            <img alt="logo" src={reactLogo} style={{width: 50}} className="ml-1"/>
-            <img alt="logo" src={reduxLogo} style={{width: 50}} className="ml-1"/>
-            <img alt="logo" src={bootstrapLogo} style={{width: 50}} className="ml-1"/>
+            <LogoBlock>
+                <img alt="logo" src={reactLogo} className="ml-1"/>
+                <img alt="logo" src={reduxLogo} className="ml-1"/>
+                <img alt="logo" src={bootstrapLogo} className="ml-1"/>
+            </LogoBlock>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">

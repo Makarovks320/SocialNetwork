@@ -27,7 +27,7 @@ const GoToForm = ({handleSubmit, pagesCount}) => {
     return (
         <GoToStyled onSubmit={handleSubmit}>
             <label>
-                Go to:
+                Go to page:
                 <Field className="inputPage" component="input" name="pageNumber" type="number" min="1" max={pagesCount}/>
             </label>
             <input type="submit" value="Go"/>

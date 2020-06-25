@@ -34,6 +34,7 @@ export const PersonalData = styled.div`
 .personalDataContainer {
   display: flex;
   flex-wrap: wrap;
+  min-width: 290px;
   min-height: 100px;
   margin-bottom: 10px;
   padding: 10px;
@@ -42,12 +43,23 @@ export const PersonalData = styled.div`
   background-color: ${(props) => props.styles.mainBG};
   color: ${(props) => props.styles.hoverLink};
 }
-.avatar {
+.avatarBlock {
+    width: 25%;
+    @media (min-width: 476px) {
+        width: 25%;
+  }
+}
+.avatarBlock img {
   border: 2px solid ${(props) => props.styles.mainBorder};
   margin-right: 10px;
 }
 .profileDataContainer {
-  flex-grow: 1;
+    width: calc(75% - 10px);
+    margin-left: 10px;
+    @media (min-width: 476px) {
+        width: calc(75% - 10px);
+        margin-left: 10px;
+  }
 }
 .table {
   color: ${(props) => props.styles.hoverLink};
