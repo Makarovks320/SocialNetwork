@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Pagination} from 'react-bootstrap'
 import s from './Pagination.module.css'
 
-const CustomizedPagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize}) => {
-    const pagesCount = Math.ceil(totalItemsCount / pageSize);
+const CustomizedPagination = ({pagesCount, currentPage, onPageChanged, portionSize}) => {
     const pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
@@ -36,18 +35,18 @@ const CustomizedPagination = ({totalItemsCount, pageSize, currentPage, onPageCha
     return (
         <Pagination className={s.pagination}>
 
-            <Pagination.Prev disabled={currentPage === 1} onClick={() => onPageChanged(--currentPage)}/>
-            <Pagination.Item className={currentPage === 1 ? s.selectedPage : ''}
+            <Pagination.Prev disabled={currentPage.toString() === '1'} onClick={() => onPageChanged(--currentPage)}/>
+            <Pagination.Item className={currentPage.toString() === '1' ? s.selectedPage : ''}
                              onClick={() => onPageChanged(1)}>{1}</Pagination.Item>
-            {isLeftEllipsis && <Pagination.Ellipsis/>}
+            {isLeftEllipsis && <Pagination.Ellipsis onClick={() => onPageChanged(currentPage-portionSize)}/>}
             {pages
                 .filter(p => p > 1 && p >= startPageNumber && p <= endPageNumber && p < pagesCount)
                 .map((p) => {
-                    return <Pagination.Item className={currentPage === p ? s.selectedPage : ''} key={p}
+                    return <Pagination.Item className={currentPage.toString() === p.toString() ? s.selectedPage : ''} key={p}
                                             onClick={() => onPageChanged(p)}>{p} </Pagination.Item>
                 })
             }
-            {isRightEllipsis && <Pagination.Ellipsis/>}
+            {isRightEllipsis && <Pagination.Ellipsis onClick={() => onPageChanged(currentPage+portionSize)}/>}
             { pagesCount > 1 &&
                 <Pagination.Item className={currentPage === pagesCount ? s.selectedPage : ''}
                              onClick={() => onPageChanged(pagesCount)}>{pagesCount}</Pagination.Item>}

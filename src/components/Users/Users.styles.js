@@ -5,7 +5,7 @@ const StyledWrapper = styled.div`
   margin: 10px;
 }
 {
-  margin: 10px;
+  margin: 10px 0;
   padding: 10px;
   background-color: ${(props) => props.styles.mainBG};
   border: 2px solid ${(props) => props.styles.mainBorder};
