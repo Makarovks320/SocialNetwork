@@ -7,7 +7,7 @@ import {Form} from 'react-bootstrap'
 const FormsControl = ({meta: {touched, error}, children}) => {
     const isError = (error && touched);
     return (
-        <div className={isError ? s.error : ''}>
+        <div className={s.formControl + ' ' + ( isError ? s.error : '')}>
             {children}
             {isError && <span>{error}</span>}
         </div>
@@ -21,8 +21,7 @@ export const Textarea = (props) => {
         newMeta[key.toLowerCase()] = meta[key] + ''
     }
     return <FormsControl {...props}>
-        <textarea {...input} {...newMeta} {...restProps}></textarea>
-        {/*<Form.Control {...input} {...newMeta} {...restProps} as="textarea" rows="3" />*/}
+        <Form.Control {...input} {...newMeta} {...restProps} as="textarea" rows="2" />
     </FormsControl>
 }
 

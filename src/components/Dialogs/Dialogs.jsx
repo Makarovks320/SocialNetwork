@@ -10,6 +10,7 @@ const Dialogs = (props) => {
     }
     return (
         <div>
+            This section is in development
             <StyledWrapper styles={props.styles}>
                 <DialogItems dialogs={props.dialogs}/>
                 <Messages messages={props.messages}/>

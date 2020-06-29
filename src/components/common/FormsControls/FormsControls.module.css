@@ -9,6 +9,7 @@
 
 .summaryError {
     padding: 0 5px;
+    margin: 0 5px;
     color: red;
     border: 1px solid red;
 }

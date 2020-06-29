@@ -35,6 +35,12 @@ const ProfileStatusWithHook = (props) => {
                        onBlur={deactivateEditMode}/>
             </div>
             }
+            {!props.isOwner &&
+            <div>
+                <Status status={props.status}
+                        isOwner={props.isOwner}>{status || (props.isOwner && 'set a status message')}</Status>
+            </div>
+            }
         </>
     )
 }

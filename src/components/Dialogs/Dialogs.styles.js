@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
 {
   padding: 5px;
+  margin: 5px;
 
   display: grid;
   grid-template-rows: 100%;
