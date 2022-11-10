@@ -55,7 +55,7 @@ const Header = (props) => {
                         <StyledRightAside styles={props.styles}>
                             <Thumbnail/>
                             <span>{props.authorizedUserName}</span>
-                            <Button variant="success" onClick={props.logOut}>Log Out</Button>
+                            <Button variant="success" onClick={props.logOut}>Log Out!</Button>
                         </StyledRightAside> :
                         <div>
                             <NavLink to='/login' activeClassName="activeLink"><Button variant="success">Log in</Button></NavLink>
